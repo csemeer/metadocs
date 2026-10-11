@@ -1,2 +1,0 @@
-# metadocs
-meta docs
