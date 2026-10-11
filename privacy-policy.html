@@ -69,35 +69,35 @@
     <p class="updated">Effective date: 11 October 2026 · Last updated: 11 October 2026</p>
 
     <div class="notice">
-      <strong>Current status:</strong> The Facebook Page connection and publishing integration are not yet enabled. This policy describes the planned handling of information if you authorize the app to work with a Facebook Page. It must be updated if the actual implementation or data practices differ.
+      <strong>Current status:</strong> A local Facebook Page publishing tool is available but has not yet been connected to a Page. It runs on the operator’s computer and requires a separate, explicit confirmation before each post is sent to Facebook.
     </div>
 
-    <p>This policy explains how the Gold Market Intelligence service (“the service”) may handle information when an authorized user prepares and publishes gold-market research content to a Facebook Page. The service is operated by the individual listed under <a href="#contact">Contact</a>.</p>
+    <p>This policy explains how the Gold Market Intelligence service (“the service”) handles information when its operator uses the local publisher to prepare and publish research content to a Facebook Page. The service is operated by the individual listed under <a href="#contact">Contact</a>. This local tool is not a hosted web application.</p>
 
     <h2>Information the service may handle</h2>
-    <p>If a Page administrator chooses to connect Facebook, the service may process only information needed for the requested publishing workflow, such as:</p>
+    <p>When the operator connects a Facebook account, the local tool receives and temporarily processes only information needed for the requested publishing workflow, such as:</p>
     <ul>
-      <li>Basic account and Page details needed to identify the authorized Page and confirm publishing access.</li>
-      <li>Page access credentials supplied through Meta’s authorization flow, used to perform actions the administrator requests.</li>
-      <li>Post text, images, and related publication identifiers or status returned by Meta.</li>
+      <li>Facebook Page names, Page IDs, and Page publishing-task details returned by Meta, to let the operator choose a Page they are authorized to manage.</li>
+      <li>Short-lived user authorization and Page access tokens returned through Meta’s OAuth flow. The local tool uses these tokens only for listing Pages and carrying out a publication the operator explicitly confirms.</li>
+      <li>The prepared post caption and chart images, and the post identifier returned by Meta after a successful publication.</li>
     </ul>
-    <p>The service’s gold-market reports and graphics may also contain public market-price information obtained from the sources identified in the relevant report. They are not personal information about the Page administrator.</p>
+    <p>The gold-market reports and graphics may contain public market-price information from the sources identified in the relevant report. They are not personal information about the Page operator.</p>
 
     <h2>How information is used</h2>
-    <p>Connected Page information and authorization are used to identify the selected Page and, only when requested by an authorized user, prepare or publish that user’s content. The service does not use Page access to read private messages, profile personal information, or publish unrelated content.</p>
+    <p>The operator’s browser connects to a service bound to the operator’s own computer (localhost). Meta handles the sign-in and authorization. The tool uses returned Page information to show the Pages available for publishing, then displays the exact caption and images for review. It uploads the images and creates a Page post only after the operator checks the confirmation box and selects the publish button. It does not use Page access to read private messages or personal profile information, and it does not publish unrelated content or post on a schedule.</p>
 
     <h2>Sharing and service providers</h2>
-    <p>The service does not sell personal information. When a user requests Facebook publishing, the relevant post content and image are sent to Meta Platforms, Inc. so Meta can provide the publishing service under its own terms and privacy policy. Hosting or infrastructure providers may process technical information necessary to operate the service. No other sharing is intended unless required by law or necessary to protect the service and its users.</p>
+    <p>The service does not sell personal information. During authorization, the browser communicates with Meta and the local tool sends OAuth requests to Meta. After explicit publish confirmation, the caption and images are sent to Meta Platforms, Inc. to create the requested Facebook Page post. The local tool is not hosted by a cloud provider and is designed not to send Page data to any other service. GitHub may independently process technical information when hosting this policy page; see GitHub’s Privacy Statement below.</p>
 
     <h2>Storage and retention</h2>
-    <p>As of the effective date, no Facebook integration is connected and the service is not receiving Facebook Page data. Before enabling the integration, the operator will configure where authorization credentials and any publication records are stored, restrict access to them, and set retention periods appropriate to the implementation. The operator will not claim that data is encrypted, retained for a particular period, or deleted automatically unless those controls are actually in place.</p>
-    <p>Facebook posts published at a user’s request remain on the Page until the Page administrator or Meta removes them. Meta may retain information under Meta’s own policies.</p>
+    <p>The local tool keeps OAuth and Page access tokens, Page details, and the returned post ID in the running process’s memory only. It does not write those tokens or Page data to a database or file, and it suppresses HTTP request logging. Browser session data expires after one hour and expired sessions are removed from memory by the running tool; stopping the tool clears all remaining session data. The operator’s Meta app ID and app secret are kept in a local environment file on the operator’s computer and are not shown in the browser interface. The tool does not retain a separate publication record after it stops.</p>
+    <p>Facebook posts and uploaded media sent to Meta are subject to Meta’s storage and retention policies. If a publishing attempt fails after image upload, unpublished images may remain on the Page; the operator should check the Page and remove them if appropriate. Facebook posts published at the operator’s request remain on the Page until the Page administrator or Meta removes them.</p>
 
     <h2>Your choices and deletion requests</h2>
-    <p>A Page administrator can stop future access by removing the app from the Page or revoking its authorization in Facebook settings. To request deletion of information held by the service, email <a href="mailto:sam2021x@gmail.com">sam2021x@gmail.com</a> from an address you control and identify the Page or information involved. Do not email access tokens or passwords. The operator will respond and delete information the service controls, subject to legal obligations and technical backup or security-log retention.</p>
+    <p>The operator can stop future access by revoking the app’s authorization in Facebook settings. Because the tool is local and does not keep Page data after its process stops, the operator can clear locally held session data by stopping it. To request deletion of content or information held by Meta, use Meta’s tools and policies. To contact the service operator about this local workflow, email <a href="mailto:sam2021x@gmail.com">sam2021x@gmail.com</a>. Do not email access tokens, app secrets, or passwords.</p>
 
     <h2>Security</h2>
-    <p>The operator will use reasonable safeguards appropriate to the deployed service. No transmission or storage system can be guaranteed to be completely secure. Do not send passwords, access tokens, or other credentials by email or include them in a support request.</p>
+    <p>The local tool binds only to the operator’s computer, uses a one-hour browser session, CSRF checks, and keeps authorization tokens in process memory rather than persisting them. These safeguards do not eliminate all risk. No transmission or storage system can be guaranteed to be completely secure. Do not share the computer while connected, or send passwords, access tokens, app secrets, or other credentials by email or in a support request.</p>
 
     <h2>Children</h2>
     <p>The service is intended for adults who manage a Facebook Page. It is not designed for children and does not knowingly seek to collect children’s personal information.</p>
